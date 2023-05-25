@@ -7,8 +7,8 @@ export function insertProducts(products: ProductEntity[]): void {
   const values = products.map((product: ProductEntity) => 
     `('${product.id}','${product.manufacturer}','${product.name.replaceAll('\'','')}','${product.description.replaceAll('\'','')}','${product.image}',${product.owned},${product.wishlisted})`
   );
-  db().exec(`
-    INSERT INTO products (id, manufacturer, name, description, image, owned, wishlisted)
+  db(DB, true).exec(`
+    INSERT OR IGNORE INTO products (id, manufacturer, name, description, image, owned, wishlisted)
     VALUES ${values.join(',')};
   `);
 }
