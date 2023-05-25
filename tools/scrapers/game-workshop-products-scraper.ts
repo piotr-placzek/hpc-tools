@@ -6,6 +6,13 @@ const ITEM_SELECTOR = 'li.record-spotlight__item-wrapper > span.recordItem.recor
 
 const URL = {
   BASE: 'https://www.games-workshop.com/en-WW/detail?N=2401632303&Nr=AND%28product.locale%3Aen_WW_gw%2Csku.siteId%3AWW_gw%29&Nrs=collection%28%29%2Frecord%5Bproduct.startDate+<%3D+1684933620000+and+product.endDate+>%3D+1684933620000%5D',
+  LAYER: 'https://www.games-workshop.com/en-WW/detail?N=3918877057&Nr=AND%28product.locale%3Aen_WW_gw%2Csku.siteId%3AWW_gw%29&Nrs=collection%28%29%2Frecord%5Bproduct.startDate+<%3D+1685017500000+and+product.endDate+>%3D+1685017500000%5D',
+  SHADE: 'https://www.games-workshop.com/en-WW/detail?N=882366425&Nr=AND%28product.locale%3Aen_WW_gw%2Csku.siteId%3AWW_gw%29&Nrs=collection%28%29%2Frecord%5Bproduct.startDate+<%3D+1685017500000+and+product.endDate+>%3D+1685017500000%5D',
+  DRY: 'https://www.games-workshop.com/en-WW/detail?N=2719312672&Nr=AND%28product.locale%3Aen_WW_gw%2Csku.siteId%3AWW_gw%29&Nrs=collection%28%29%2Frecord%5Bproduct.startDate+<%3D+1685017560000+and+product.endDate+>%3D+1685017560000%5D',
+  CONTRAST: 'https://www.games-workshop.com/en-WW/detail?N=3891072176&Nr=AND%28product.locale%3Aen_WW_gw%2Csku.siteId%3AWW_gw%29&Nrs=collection%28%29%2Frecord%5Bproduct.startDate+<%3D+1685017560000+and+product.endDate+>%3D+1685017560000%5D',
+  TECHNICAL: 'https://www.games-workshop.com/en-WW/detail?N=3388174230&Nr=AND%28product.locale%3Aen_WW_gw%2Csku.siteId%3AWW_gw%29&Nrs=collection%28%29%2Frecord%5Bproduct.startDate+<%3D+1685017620000+and+product.endDate+>%3D+1685017620000%5D',
+  AIR: 'https://www.games-workshop.com/en-WW/detail?N=865704738&Nr=AND%28product.locale%3Aen_WW_gw%2Csku.siteId%3AWW_gw%29&Nrs=collection%28%29%2Frecord%5Bproduct.startDate+<%3D+1685017620000+and+product.endDate+>%3D+1685017620000%5D',
+  SPRAYS: 'https://www.games-workshop.com/en-WW/detail?N=434579619&Nr=AND%28product.locale%3Aen_WW_gw%2Csku.siteId%3AWW_gw%29&Nrs=collection%28%29%2Frecord%5Bproduct.startDate+<%3D+1685017680000+and+product.endDate+>%3D+1685017680000%5D',
 };
 
 interface GamesWorkshopProduct {
