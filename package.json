@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+ "engines" : { 
+    "npm" : ">=8.19.4",
+    "node" : ">=16.20.0"
+  },
   "scripts": {
     "prettier": "prettier --write ./app ./tools",
     "build:app": "tsc -p ./tsconfig.app.json",
     "build:tools": "tsc -p ./tsconfig.tools.json",
-    "scrape:gw": "node ./_build/tools/game-workshop-products-scraper.js"
+    "db:init": "node ./_build/tools/database/db.js",
+    "scrape:gw": "node ./_build/tools/scrapers/game-workshop-products-scraper.js"
   },
   "keywords": [],
   "author": "Piotr Płaczek",
@@ -18,5 +23,8 @@
     "prettier": "^2.8.8",
     "puppeteer": "^20.3.0",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@types/better-sqlite3": "^7.6.4"
   }
 }
