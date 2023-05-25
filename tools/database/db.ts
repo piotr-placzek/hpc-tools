@@ -5,10 +5,10 @@ const DB = 'database.sqlite';
 
 export function insertProducts(products: ProductEntity[]): void {
   const values = products.map((product: ProductEntity) => 
-    `('${product.id}','${product.manufacturer}','${product.name.replaceAll('\'','')}','${product.description.replaceAll('\'','')}',${product.owned},${product.wishlisted})`
+    `('${product.id}','${product.manufacturer}','${product.name.replaceAll('\'','')}','${product.description.replaceAll('\'','')}','${product.image}',${product.owned},${product.wishlisted})`
   );
   db().exec(`
-    INSERT INTO products (id, manufacturer, name, description, owned, wishlisted)
+    INSERT INTO products (id, manufacturer, name, description, image, owned, wishlisted)
     VALUES ${values.join(',')};
   `);
 }
@@ -27,6 +27,7 @@ function init(path: string, verbose: boolean = false, fileMustExist: boolean = t
       manufacturer TEXT,
       name TEXT,
       description TEXT,
+      image TEXT,
       owned INTEGER,
       wishlisted INTEGER,
       PRIMARY KEY (id, manufacturer)

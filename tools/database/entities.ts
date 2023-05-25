@@ -3,6 +3,7 @@ export interface ProductEntity {
   manufacturer: string;
   name: string;
   description: string;
+  image: string;
   owned: number;
   wishlisted: number;
 }

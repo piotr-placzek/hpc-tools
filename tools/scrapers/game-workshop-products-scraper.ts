@@ -19,6 +19,7 @@ interface GamesWorkshopProduct {
   id: string;
   name: string;
   description: string;
+  image: string;
 }
 
 interface GtmProductFieldObject {
@@ -50,10 +51,12 @@ async function getProducts(url: string): Promise<GamesWorkshopProduct[]> {
     const products: GamesWorkshopProduct[] = [];
     for (const element of elements) {
       const gtmProductFieldObject: GtmProductFieldObject = JSON.parse(element.dataset.gtmProductfieldobject);
-      const product = {
+      const image: string = document.querySelector(`img[data-name='${element.dataset.name}']`)?.getAttribute('src') || 'dupa';
+      const product: GamesWorkshopProduct = {
         id: gtmProductFieldObject.id,
         name: element.dataset.tooltip,
         description: gtmProductFieldObject.name,
+        image: image
       };
       products.push(product);
     }
@@ -79,6 +82,7 @@ async function storeProducts(products: GamesWorkshopProduct[]): Promise<void> {
     id: product.id,
     name: product.name,
     description: product.description,
+    image: product.image,
     manufacturer: 'games-workshop',
     owned: 0,
     wishlisted: 0,
