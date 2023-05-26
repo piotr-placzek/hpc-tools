@@ -50,22 +50,21 @@ async function scrapingStrategy(page: puppeteer.Page): Promise<ArmyPainterProduc
   return page.evaluate((ITEM_SELECTOR: string): ArmyPainterProduct[] => {
     const products: ArmyPainterProduct[] = [];
     const extractId = (imageSrc: string): string => {
-      return imageSrc.split('/')
-                     .slice(-1)[0]
-                     .split('_')
-                     .filter((s: string): boolean => 
-                        s.startsWith('WP') ||
-                        s.startsWith('AW') ||
-                        s.startsWith('CP') ||
-                        s.startsWith('GM') )[0];
+      return imageSrc
+        .split('/')
+        .slice(-1)[0]
+        .split('_')
+        .filter(
+          (s: string): boolean => s.startsWith('WP') || s.startsWith('AW') || s.startsWith('CP') || s.startsWith('GM'),
+        )[0];
     };
     const extractName = (imageAlt: string): string => {
       const alt = imageAlt.split(': ');
       return alt[1] || alt[0];
-    }
+    };
 
     const nodeListOfElements: NodeListOf<ListElement> = document.querySelectorAll(ITEM_SELECTOR);
-    for(let element of Array.from(nodeListOfElements)) {
+    for (let element of Array.from(nodeListOfElements)) {
       products.push({
         id: extractId(element.getAttribute('src')!),
         name: extractName(element.getAttribute('alt')!),

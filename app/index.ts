@@ -1,5 +1,5 @@
 async function main(): Promise<void> {
-    console.log('Init');
+  console.log('Init');
 }
 
 main();

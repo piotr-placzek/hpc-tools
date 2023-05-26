@@ -66,4 +66,3 @@ async function scrapingStrategy(page: puppeteer.Page): Promise<GamesWorkshopProd
 }
 
 scrape(sourceUrlsFactory(), scrapingStrategy, ITEM_SELECTOR, db);
-
