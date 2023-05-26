@@ -12,7 +12,8 @@
     "build:app": "tsc -p ./tsconfig.app.json",
     "build:tools": "tsc -p ./tsconfig.tools.json",
     "db:init": "node ./_build/tools/database/db.js",
-    "scrape:gw": "node ./_build/tools/scrapers/game-workshop-products-scraper.js"
+    "scrape:gw": "node ./_build/tools/scrapers/game-workshop-products-scraper.js",
+    "scrape:ap": "node ./_build/tools/scrapers/army-painter-products-scraper.js"
   },
   "keywords": [],
   "author": "Piotr Płaczek",
