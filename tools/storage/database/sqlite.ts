@@ -1,13 +1,17 @@
 import Database from 'better-sqlite3';
-import { ProductEntity } from './entities';
+import { RawProduct } from '../../scrapers/scraper-base';
 
 const DB = 'database.sqlite';
 
-export function insertProducts(products: ProductEntity[]): void {
-  const values = products.map((product: ProductEntity) => 
-    `('${product.id}','${product.manufacturer}','${product.name.replaceAll('\'','')}','${product.description.replaceAll('\'','')}','${product.image}',${product.owned},${product.wishlisted})`
+export async function insertProducts(products: RawProduct[]): Promise<void> {
+  const values = products.map(
+    (product: RawProduct) =>
+      `('${product.id}','${product.manufacturer}','${product.name.replaceAll(
+        "'",
+        '',
+      )}','${product.description.replaceAll("'", '')}','${product.image}',0,0)`,
   );
-  db(DB, true).exec(`
+  await db(DB, true).exec(`
     INSERT OR IGNORE INTO products (id, manufacturer, name, description, image, owned, wishlisted)
     VALUES ${values.join(',')};
   `);
@@ -36,4 +40,3 @@ function init(path: string, verbose: boolean = false, fileMustExist: boolean = t
 }
 
 init(DB, true, false);
-

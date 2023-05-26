@@ -4,7 +4,6 @@ export interface ProductEntity {
   name: string;
   description: string;
   image: string;
-  owned: number;
-  wishlisted: number;
+  owned: 0 | 1;
+  wishlisted: 0 | 1;
 }
-
